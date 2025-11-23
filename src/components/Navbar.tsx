@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Package, MessageSquare, PlusCircle, User, LogOut, Home } from 'lucide-react';
 import ChatModal from './ChatModal';
+import NotificationDropdown from './NotificationDropdown';
 
 const Navbar = () => {
   const { profile, signOut } = useAuth();
@@ -62,6 +63,8 @@ const Navbar = () => {
             <MessageSquare className="h-5 w-5" />
             <span className="sr-only">Chat</span>
           </Button>
+
+          <NotificationDropdown />
 
           <Button variant="default" size="sm" asChild>
             <Link to="/cadastrar-objeto">
