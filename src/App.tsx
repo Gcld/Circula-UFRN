@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import ObjectDetail from "./pages/ObjectDetail";
 import CreateObject from "./pages/CreateObject";
 import Profile from "./pages/Profile";
+import ProposeTrade from "./pages/ProposeTrade";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -52,6 +53,14 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/propor-troca/:id"
+              element={
+                <ProtectedRoute>
+                  <ProposeTrade />
                 </ProtectedRoute>
               }
             />
