@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
@@ -11,10 +12,12 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Package, MessageSquare, PlusCircle, User, LogOut, Home } from 'lucide-react';
+import ChatModal from './ChatModal';
 
 const Navbar = () => {
   const { profile, signOut } = useAuth();
   const navigate = useNavigate();
+  const [chatOpen, setChatOpen] = useState(false);
 
   const handleSignOut = async () => {
     await signOut();
@@ -55,11 +58,9 @@ const Navbar = () => {
             </Link>
           </Button>
 
-          <Button variant="ghost" size="icon" asChild>
-            <Link to="/trocas">
-              <MessageSquare className="h-5 w-5" />
-              <span className="sr-only">Trocas</span>
-            </Link>
+          <Button variant="ghost" size="icon" onClick={() => setChatOpen(true)}>
+            <MessageSquare className="h-5 w-5" />
+            <span className="sr-only">Chat</span>
           </Button>
 
           <Button variant="default" size="sm" asChild>
@@ -103,6 +104,8 @@ const Navbar = () => {
           </DropdownMenu>
         </div>
       </div>
+      
+      <ChatModal open={chatOpen} onOpenChange={setChatOpen} />
     </nav>
   );
 };
