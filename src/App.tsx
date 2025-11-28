@@ -11,6 +11,7 @@ import ObjectDetail from "./pages/ObjectDetail";
 import CreateObject from "./pages/CreateObject";
 import Profile from "./pages/Profile";
 import ProposeTrade from "./pages/ProposeTrade";
+import MyObjects from "./pages/MyObjects";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,14 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <Home />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/meus-objetos"
+              element={
+                <ProtectedRoute>
+                  <MyObjects />
                 </ProtectedRoute>
               }
             />
